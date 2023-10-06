@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/Livraria mak heb.iml" filepath="$PROJECT_DIR$/Livraria mak heb.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/Livraria  mak heb.iml" filepath="$PROJECT_DIR$/Livraria  mak heb.iml" />
+>>>>>>> 3c7253b1daaebbd8f670f74183749c1ee96b8c2a
     </modules>
   </component>
 </project>
