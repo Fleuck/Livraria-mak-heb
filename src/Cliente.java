@@ -5,8 +5,8 @@ public class Cliente extends Pessoas {
     protected String telefone;
     protected String cep;
 
-    public Cliente(String nome, String endereco, int cpf, String email, String senha, String telefone, String cep) {
-        super(nome, endereco, cpf);
+    public Cliente(String nome, String endereco, int cpf, String Sobrenome, String email, String senha, String telefone, String cep) {
+        super(nome, endereco, cpf, Sobrenome);
         this.email = email;
         this.senha = senha;
         this.telefone = telefone;

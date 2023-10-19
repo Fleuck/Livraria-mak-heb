@@ -1,4 +1,4 @@
-public abstract class Biblioteca extends Livro{
+public abstract class Biblioteca extends Livro implements Fornecedor{
     protected int Valor;
 
     public Biblioteca(int codigo, String nome, String autor, String editora, int quantidade, int valor) {
@@ -10,4 +10,5 @@ public abstract class Biblioteca extends Livro{
     void remover(int codigo){}
     void adicionar(int codigo){}
     void consultar(int codigo){}
+    void comprar(int codigo){}
 }
