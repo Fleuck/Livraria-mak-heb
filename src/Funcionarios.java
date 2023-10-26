@@ -1,13 +1,15 @@
 public abstract class Funcionarios extends Pessoas{
-    protected String cargo;
     protected double salario;
-    protected double id;
-    public Funcionarios(String nome, String endereco, String Sobrenome, int cpf, String cargo, double salario, double id) {
-        super(nome, endereco, cpf, Sobrenome);
-        this.cargo = cargo;
+    protected String cargo;
+    protected int id;
+
+    public Funcionarios(String nome, String fone, String email, double salario, String cargo, int id) {
+        super(nome, fone, email);
         this.salario = salario;
+        this.cargo = cargo;
         this.id = id;
     }
+
     abstract double vender(double valor);
     abstract void enviarLivro();
 

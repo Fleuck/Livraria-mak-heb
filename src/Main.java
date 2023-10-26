@@ -11,7 +11,6 @@ public class Main {
             System.out.println("2.Acessar estoque da biblioteca");
             System.out.println("3.Acessar gerenciamento sobre funcionarios");
             System.out.println("---------------------------------------------------------------------");
-
         }
-    }   
+    }
 }

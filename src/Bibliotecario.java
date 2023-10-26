@@ -1,5 +1,5 @@
 abstract class Bibliotecario extends Funcionarios{
-    public Bibliotecario(String nome, String endereco, String Sobrenome, int cpf, String cargo, double salario, double id) {
-        super(nome, endereco, Sobrenome, cpf, cargo, salario, id);
+    public Bibliotecario(String nome, String fone, String email, double salario, String cargo, int id) {
+        super(nome, fone, email, salario, cargo, id);
     }
 }

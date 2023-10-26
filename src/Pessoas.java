@@ -1,15 +1,12 @@
 public abstract class Pessoas {
     protected String nome;
-    protected String endereco;
-    protected int cpf;
-    protected String Sobrenome;
+    protected String fone;
+    protected String email;
 
-
-    public Pessoas(String nome, String endereco, int cpf, String Sobrenome) {
+    public Pessoas(String nome, String fone, String email) {
         this.nome = nome;
-        this.endereco = endereco;
-        this.cpf = cpf;
-        this.Sobrenome = Sobrenome;
+        this.fone = fone;
+        this.email = email;
     }
 
     abstract void consultar();

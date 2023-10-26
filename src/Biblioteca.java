@@ -1,4 +1,4 @@
-public abstract class Biblioteca extends Livro implements Fornecedor{
+public abstract class Biblioteca extends Livro {
     protected int Valor;
 
     public Biblioteca(int codigo, String nome, String autor, String editora, int quantidade, int valor) {
