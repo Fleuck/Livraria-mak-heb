@@ -6,6 +6,7 @@ public class SistemaBiblioteca {
     private TelaBibliotecario telaBibliotecario;
     private TelaComprador telaComprador;
 
+
     public SistemaBiblioteca() {
         loginFrame = new JFrame("Sistema de Biblioteca");
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

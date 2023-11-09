@@ -110,7 +110,7 @@ public class TelaBibliotecario extends JFrame {
     public void setSistemaBiblioteca(SistemaBiblioteca sistemaBiblioteca) {
     }
 
-    private class Livro {
+    protected class Livro {
         private String nome;
         private int quantidade;
         private double preco;
@@ -182,7 +182,7 @@ public class TelaBibliotecario extends JFrame {
     }
 
 
-    private class Venda {
+    protected class Venda {
         private Livro livro;
         private int quantidadeVendida;
         private double valorTotal;

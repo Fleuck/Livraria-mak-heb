@@ -51,7 +51,7 @@ public class LoginUsuario extends JFrame {
                     if (categoria.equals("Gerente")) {
                         // Abra a página do gerente
                     } else if (categoria.equals("Comprador")) {
-                        // Abra a página do comprador
+                        new TelaComprador();
                     } else if (categoria.equals("Bibliotecário")) {
                         new TelaBibliotecario();
                     }
@@ -67,12 +67,15 @@ public class LoginUsuario extends JFrame {
 
     private boolean autenticarUsuario(String nomeUsuario, char[] senha, String categoria) {
 
-        return false;
+        return true;
     }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             new LoginUsuario();
         });
+    }
+
+    public void setSistemaBiblioteca(SistemaBiblioteca sistemaBiblioteca) {
     }
 }

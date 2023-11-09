@@ -6,19 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TelaComprador extends JFrame {
-    private JComboBox<Fornecedor> fornecedoresBox;
-    private JTextArea livrosDisponiveisTextArea;
-    private JButton comprarLivroButton;
-    private JTextArea historicoComprasTextArea;
-    private List<Fornecedor> fornecedores;
-    private List<Compra> historicoCompras;
+    private JComboBox<Fornecedor> fornecedoresBox; // ComboBox para selecionar fornecedores
+    private JTextArea livrosDisponiveisTextArea; // TextArea para mostrar livros disponíveis
+    private JButton comprarLivroButton; // Botão para comprar livros
+    private JTextArea historicoComprasTextArea; // TextArea para mostrar histórico de compras
+    private List<Fornecedor> fornecedores; // Lista de fornecedores
+    private List<Compra> historicoCompras; // Lista de compras
 
     public TelaComprador() {
+        // Configuração da janela principal
         setTitle("Tela do Comprador");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);
         setLocationRelativeTo(null);
 
+        // Inicialização das listas
         fornecedores = new ArrayList<>();
         fornecedores.add(new Fornecedor("Fornecedor A"));
         fornecedores.add(new Fornecedor("Fornecedor B"));
@@ -26,19 +28,19 @@ public class TelaComprador extends JFrame {
 
         historicoCompras = new ArrayList<>();
 
+        // Configuração do painel principal
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(4, 2));
 
+        // Componentes de interface
         fornecedoresBox = new JComboBox<>(fornecedores.toArray(new Fornecedor[0]));
-
         livrosDisponiveisTextArea = new JTextArea(10, 30);
         livrosDisponiveisTextArea.setEditable(false);
-
         comprarLivroButton = new JButton("Comprar Livro");
-
         historicoComprasTextArea = new JTextArea(10, 30);
         historicoComprasTextArea.setEditable(false);
 
+        // Adiciona os componentes ao painel
         panel.add(new JLabel("Selecione o Fornecedor:"));
         panel.add(fornecedoresBox);
         panel.add(new JLabel("Livros Disponíveis:"));
@@ -47,6 +49,7 @@ public class TelaComprador extends JFrame {
         panel.add(new JLabel("Histórico de Compras:"));
         panel.add(new JScrollPane(historicoComprasTextArea));
 
+        // Adiciona ouvintes de ação para os componentes
         fornecedoresBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -61,28 +64,32 @@ public class TelaComprador extends JFrame {
             }
         });
 
+        // Adiciona o painel à janela
         add(panel);
+        setVisible(true);
         setVisible(true);
     }
 
+    // Exibe os livros disponíveis para o fornecedor selecionado
     private void exibirLivrosDisponiveis() {
         Fornecedor fornecedorSelecionado = (Fornecedor) fornecedoresBox.getSelectedItem();
         if (fornecedorSelecionado != null) {
             StringBuilder livrosDisponiveisStr = new StringBuilder();
-            for (Livro livro : fornecedorSelecionado.getLivrosDisponiveis()) {
+            for (Livro livro : fornecedorSelecionado.getLivrosDisponíveis()) {
                 livrosDisponiveisStr.append(livro.toString()).append("\n");
             }
             livrosDisponiveisTextArea.setText(livrosDisponiveisStr.toString());
         }
     }
 
+    // Permite ao usuário comprar um livro
     private void comprarLivro() {
         Fornecedor fornecedorSelecionado = (Fornecedor) fornecedoresBox.getSelectedItem();
         if (fornecedorSelecionado != null) {
-            Livro livroSelecionado = (Livro) JOptionPane.showInputDialog(this, "Selecione o livro que deseja comprar:", "Compra de Livro", JOptionPane.QUESTION_MESSAGE, null, fornecedorSelecionado.getLivrosDisponiveis().toArray(), null);
+            Livro livroSelecionado = (Livro) JOptionPane.showInputDialog(this, "Selecione o livro que deseja comprar:", "Compra de Livro", JOptionPane.QUESTION_MESSAGE, null, fornecedorSelecionado.getLivrosDisponíveis().toArray(), null);
 
             if (livroSelecionado != null) {
-                fornecedorSelecionado.removerLivroDisponivel(livroSelecionado);
+                fornecedorSelecionado.removerLivroDisponível(livroSelecionado);
                 historicoCompras.add(new Compra(livroSelecionado));
                 exibirLivrosDisponiveis();
                 exibirHistoricoCompras();
@@ -91,6 +98,7 @@ public class TelaComprador extends JFrame {
         }
     }
 
+    // Exibe o histórico de compras
     private void exibirHistoricoCompras() {
         StringBuilder historicoComprasStr = new StringBuilder();
         for (Compra compra : historicoCompras) {
@@ -108,6 +116,7 @@ public class TelaComprador extends JFrame {
     public void setSistemaBiblioteca(SistemaBiblioteca sistemaBiblioteca) {
     }
 
+    // Classe interna que representa um fornecedor
     private class Fornecedor {
         private String nome;
         private List<Livro> livrosDisponiveis;
@@ -125,11 +134,11 @@ public class TelaComprador extends JFrame {
             return nome;
         }
 
-        public List<Livro> getLivrosDisponiveis() {
+        public List<Livro> getLivrosDisponíveis() {
             return livrosDisponiveis;
         }
 
-        public void removerLivroDisponivel(Livro livro) {
+        public void removerLivroDisponível(Livro livro) {
             livrosDisponiveis.remove(livro);
         }
 
@@ -139,6 +148,7 @@ public class TelaComprador extends JFrame {
         }
     }
 
+    // Classe interna que representa um livro
     private class Livro {
         private String nome;
         private double preco;
@@ -152,7 +162,7 @@ public class TelaComprador extends JFrame {
             return nome;
         }
 
-        public double getPreco() {
+        public double getPreço() {
             return preco;
         }
 
@@ -162,6 +172,7 @@ public class TelaComprador extends JFrame {
         }
     }
 
+    // Classe interna que representa uma compra
     private class Compra {
         private Livro livro;
 
@@ -171,8 +182,7 @@ public class TelaComprador extends JFrame {
 
         @Override
         public String toString() {
-            return "Livro Comprado: " + livro.getNome() + " - Preço: R$" + livro.getPreco();
+            return "Livro Comprado: " + livro.getNome() + " - Preço: R$" + livro.getPreço();
         }
     }
 }
-
